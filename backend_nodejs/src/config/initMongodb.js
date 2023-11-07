@@ -7,11 +7,10 @@ class Database {
         this.connect()
     }
 
-    connect(type='mongodb') {
-        mongoose.connect(connectionString, {
-            maxPoolSize: 50
-        }).then(()=>{console.log(`database connected`)})
-        .catch((error)=>{console.log(`failed to connect database:: ${error}`)})
+    connect(type='mongodb'){
+        mongoose.connect(connectionString, {maxPoolSize: 50})
+        .then(()=>{console.log(`connected database`)})
+        .catch(()=>{console.log(`failed to connect db`)})
     }
 
     static getInstance(){
@@ -24,6 +23,4 @@ class Database {
 
 const instanceMongodb = Database.getInstance()
 
-module.exports = {
-    instanceMongodb
-}
+module.exports = instanceMongodb

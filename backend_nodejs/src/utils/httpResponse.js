@@ -1,4 +1,4 @@
 module.exports = {
-    codeStatus : require('./codeStatus'),
-    codeReasonPhrase : require('./codeReasonPhrase')
+    codeStatus: require('./codeStatus'),
+    codeReason : require('./codeReason')
 }

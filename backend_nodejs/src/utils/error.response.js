@@ -1,34 +1,36 @@
-const {codeStatus, codeReasonPhrase} = require('./httpResponse')
+'use strict'
 
+const { codeReason, codeStatus } = require('./httpResponse')
 
 class ErrorResponse extends Error {
-    constructor({message, statusCode}){
+    constructor({ message, status }) {
         super(message)
-        this.status = statusCode
+        this.status = status
     }
 }
 
 class BadRequestResponse extends ErrorResponse {
-    constructor({message = codeReasonPhrase.BAD_REQUEST, statusCode = codeStatus.BAD_REQUEST}){
-        super({message, statusCode})
+    constructor({ message = codeReason.BAD_REQUEST, status = codeStatus.BAD_REQUEST }) {
+        super({ message, status })
     }
 }
 
-class AuthFailureError extends ErrorResponse {
-    constructor({message = codeReasonPhrase.UNAUTHORIZED, statusCode = codeStatus.UNAUTHORIZED}){
-        super({message, statusCode})
+class AuthFailureResponse extends ErrorResponse {
+    constructor({ message = codeReason.UNAUTHORIZED, status = codeStatus.UNAUTHORIZED }) {
+        super({ message, status })
     }
 }
 
-class NotFoundError extends ErrorResponse {
-    constructor({message = codeReasonPhrase.NOT_FOUND, statusCode = codeStatus.NOT_FOUND}){
-        super({message, statusCode})
+class NotFoundResponse extends ErrorResponse {
+    constructor({ message = codeReason.NOT_FOUND, status = codeStatus.NOT_FOUND }) {
+        super({ message, status })
     }
 }
+
 
 module.exports = {
     ErrorResponse,
     BadRequestResponse,
-    AuthFailureError,
-    NotFoundError
+    AuthFailureResponse,
+    NotFoundResponse
 }

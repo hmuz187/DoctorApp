@@ -1,0 +1,9 @@
+/backend_nodejs/node_modules
+/backend_nodejs/.env
+/backend_nodejs/.gitignore
+
+
+/frontend/node_modules
+/frontend/ckeditor
+/frontend/.env
+/frontend/.gitignore
